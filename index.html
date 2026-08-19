@@ -32,7 +32,7 @@
   h1,h2,.script{ font-family:'Playfair Display', serif; }
   .script{ font-family:'Dancing Script', cursive; }
 
-  /* ---------- Ambient petals ---------- */
+ 
   #petalLayer, #petalLayerGift{
     position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:1;
   }
@@ -55,7 +55,7 @@
     50%{ margin-left:40px; }
   }
 
-  /* ---------- Lock screen ---------- */
+ 
   #lockScreen{
     position:relative; z-index:2;
     min-height:100vh;
@@ -146,7 +146,7 @@
 
   #lockScreen.hidden-lock{ opacity:0; transform:scale(1.05); pointer-events:none; position:absolute; inset:0; }
 
-  /* ---------- Gift screen ---------- */
+ 
   #giftScreen{
     position:relative; z-index:2;
     display:none;
@@ -210,7 +210,7 @@
     100%{ opacity:0; transform:translateY(-30px) scale(1.4); }
   }
 
-  /* ---------- Note ---------- */
+ 
   .note{
     margin-top:20px;
     background:rgba(251,243,239,0.03);
@@ -252,7 +252,7 @@
 
 <div id="petalLayer"></div>
 
-<!-- ============ LOCK SCREEN ============ -->
+
 <div id="lockScreen">
   <div class="lock-card" id="lockCard">
     <svg class="lock-icon" id="lockIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -275,26 +275,26 @@
   </div>
 </div>
 
-<!-- ============ GIFT SCREEN ============ -->
+
 <div id="giftScreen">
   <div id="petalLayerGift"></div>
 
   <div class="hero">
     <div class="bouquet-wrap">
       <svg id="bouquetSvg" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- stems -->
+        
         <path class="stem" d="M150 280 C140 220, 110 190, 95 150" stroke="#5f7a52" stroke-width="4" fill="none" stroke-linecap="round"/>
         <path class="stem" d="M150 280 C155 210, 150 180, 150 130" stroke="#5f7a52" stroke-width="4" fill="none" stroke-linecap="round"/>
         <path class="stem" d="M150 280 C160 220, 190 190, 205 150" stroke="#5f7a52" stroke-width="4" fill="none" stroke-linecap="round"/>
         <path class="stem" d="M150 280 C145 225, 125 200, 120 165" stroke="#5f7a52" stroke-width="3.5" fill="none" stroke-linecap="round"/>
         <path class="stem" d="M150 280 C158 225, 175 200, 182 165" stroke="#5f7a52" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-        <!-- leaves -->
+        
         <path d="M150 240 C135 235, 128 222, 130 210 C145 213, 152 225, 150 240Z" fill="#5f7a52"/>
         <path d="M150 250 C165 245, 172 232, 170 220 C155 223, 148 235, 150 250Z" fill="#4c6742"/>
-        <!-- ribbon -->
+        
         <path d="M130 275 L150 260 L170 275 L150 268Z" fill="#a13d4c"/>
 
-        <!-- roses (group repeated) -->
+        
         <g class="rose" data-delay="0" transform="translate(150,120) scale(0.001)">
           <circle r="10" fill="#7d2e3b"/>
           <g fill="#d88c9a">
@@ -361,17 +361,17 @@
   <div class="cake-wrap" id="cakeWrap" title="tap to blow out the candles">
     <svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="110" cy="182" rx="80" ry="10" fill="#000" opacity="0.25"/>
-      <!-- bottom tier -->
+     
       <rect x="35" y="120" width="150" height="55" rx="10" fill="#a13d4c"/>
       <path d="M35 130 Q52 118 70 130 T105 130 T140 130 T175 130 V120 H35 Z" fill="#f6dfe3"/>
-      <!-- top tier -->
+      
       <rect x="60" y="80" width="100" height="48" rx="10" fill="#d88c9a"/>
       <path d="M60 90 Q77 78 95 90 T130 90 T160 90 V80 H60 Z" fill="#fbf3ee"/>
-      <!-- drips -->
+      
       <circle cx="75" cy="128" r="4" fill="#fbf3ee"/>
       <circle cx="110" cy="130" r="4" fill="#fbf3ee"/>
       <circle cx="145" cy="128" r="4" fill="#fbf3ee"/>
-      <!-- candles -->
+      
       <g id="candles">
         <rect x="88" y="55" width="6" height="26" fill="#e8c27a"/>
         <rect x="107" y="50" width="6" height="31" fill="#e8c27a"/>
@@ -390,7 +390,6 @@
   <div class="divider">✦</div>
 
   <div class="note" id="note">
-    <!-- ===== EDIT YOUR LETTER BELOW — replace each <p> with your own words ===== -->
     <p> Dear AAYUSHA,</p>
     <p>Replace this paragraph with whatever you want to tell her first — how the day feels, or how long you've been waiting to say this.</p>
     <p>Add as many paragraphs as you like here. Each one will gently fade in as she scrolls, so take your time and let the words breathe.</p>
@@ -400,14 +399,12 @@
     <div class="signoff">
       <p class="script">Forever yours, YAKSHYA </p>
     </div>
-    <!-- ===== END OF EDITABLE LETTER ===== -->
   </div>
 
   <small class="edit-note">made with care and wishes , just for you</small>
 </div>
 
 <script>
-  // ---------- Ambient petals ----------
   function spawnPetals(container, count){
     for(let i=0;i<count;i++){
       const p = document.createElement('div');
@@ -425,7 +422,6 @@
   spawnPetals(document.getElementById('petalLayer'), 22);
   spawnPetals(document.getElementById('petalLayerGift'), 16);
 
-  // ---------- Unlock logic ----------
   const CORRECT_MONTH = 11;
   const CORRECT_DAY = 23;
 
@@ -478,7 +474,6 @@
     });
   }
 
-  // ---------- Scroll reveal for note ----------
   function observeNoteParagraphs(){
     const paras = document.querySelectorAll('.note p');
     const io = new IntersectionObserver((entries)=>{
@@ -489,7 +484,6 @@
     paras.forEach(p=>io.observe(p));
   }
 
-  // ---------- Cake interaction ----------
   const cakeWrap = document.getElementById('cakeWrap');
   let blown = false;
   cakeWrap.addEventListener('click', ()=>{
@@ -500,7 +494,6 @@
     cakeWrap.querySelector('.cake-caption').textContent = '🕯️ wish made ✦';
   });
 
-  // Keep gift open across accidental refresh within the same session
   window.addEventListener('DOMContentLoaded', ()=>{
     document.body.style.overflowY='hidden';
     if(sessionStorage.getItem('unlocked')==='1'){
